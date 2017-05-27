@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Detormentor_CLIENT.LoginPage"
+             Title ="Authenticate" Icon="ic_face_black_24dp.png">
+    <ContentPage.Content>
+        <StackLayout  HorizontalOptions="Fill" Margin ="10,10,10,10" Padding ="10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                <Label x:Name="serverlabel" Text="Serverul Curent: " VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="serverpickBUTTON"  HorizontalOptions="End" Text="Enter IP" Clicked = "selectserverbuttonCLICK"/>
+            </StackLayout>
+            
+            <Label Text="Utilizator" />
+            <Entry Placeholder="Introduceti Utilizatorul"/>
+            <Label Text="Parola"/>
+            <Entry IsPassword="True" Placeholder="Introduceti Parola"/>
+            <Button x:Name="loginBUTTON" Text="Login" Clicked="loginBUTTONclick"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

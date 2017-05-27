@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.AX2.Detormentor">
+	<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="25" />
+	<application android:label="Detormentor"></application>
+</manifest>
