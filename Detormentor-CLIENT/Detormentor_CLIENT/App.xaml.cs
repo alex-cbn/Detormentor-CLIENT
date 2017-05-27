@@ -16,10 +16,10 @@ namespace Detormentor_CLIENT
             //SelectMultipleBasePage<CheckItem> multiPage;
             // MainPage = new HomePage();
             var items = new List<PollOption>();
-            items.Add(new PollOption { OptionString = "Papaly",   ImageSource="ic_check_box_outline_blank_black_24dp.png" });
-            items.Add(new PollOption { OptionString = "Suki",       ImageSource="ic_check_box_outline_blank_black_24dp.png" });
-            items.Add(new PollOption { OptionString = "Ruski",      ImageSource="ic_check_box_outline_blank_black_24dp.png" });
-            items.Add(new PollOption { OptionString = "Patzalyyyy",   ImageSource="ic_check_box_outline_blank_black_24dp.png" });
+            items.Add(new PollOption { OptionString = "Papaly"});
+            items.Add(new PollOption { OptionString = "Suki"});
+            items.Add(new PollOption { OptionString = "Ruski"});
+            items.Add(new PollOption { OptionString = "Patzalyyyy"});
             MainPage = new SelectMultipleBasePage<PollOption>(items);
             //var ServerFind = new ServerIPInput();
             //ServerFind.ValidServer += HandleValidServer;

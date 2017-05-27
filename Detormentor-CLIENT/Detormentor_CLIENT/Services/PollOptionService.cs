@@ -15,22 +15,18 @@ namespace Detormentor_CLIENT
                 new PollOption
                 {
                     OptionString = "Papaly",
-                    ImageSource = "ic_add_box_black_24dp.png"
                 },
                 new PollOption
                 {
                     OptionString = "Suki",
-                    ImageSource = "ic_add_box_black_24dp.png"
                 },
                 new PollOption
                 {
                     OptionString = "Ruski",
-                    ImageSource = "ic_add_box_black_24dp.png"
                 },
                 new PollOption
                 {
                     OptionString = "Payuba",
-                    ImageSource = "ic_add_box_black_24dp.png"
                 }
             };
             return list;

@@ -12,66 +12,8 @@ namespace Detormentor_CLIENT.Views
     {
         public class WrappedSelection<T> : INotifyPropertyChanged
         {
-            public event EventHandler updatedbutton;
-            public void Onupdatedbutton()
-            {
-                if (updatedbutton != null)
-                {
-                    updatedbutton(this, new EventArgs());
-                }
-            }
             public T Item { get; set; }
             bool isSelected = false;
-            //public class DecentString
-            //{
-            //    public DecentString(string thestring)
-            //    {
-            //        _string = thestring;
-            //    }
-            //    public string _string;
-            //    public string get()
-            //    {
-            //        return _string;
-            //    }
-            //    public void set(string newstring)
-            //    {
-            //        if(newstring!=_string)
-            //        {
-            //            _string = newstring;
-            //            PropertyChangedEventArgs("")
-            //        }
-            //    }
-            //}
-            public string pemata
-            {
-                get
-                {
-                    if (!isSelected)
-                    {
-                        return "ic_check_box_outline_blank_black_24dp.png";
-                    }
-                    else
-                    {
-                        return "ic_check_box_black_24dp.png";
-                    }
-                }
-                set
-                {
-                    if (pemata != value)
-                    {
-                        if(pemata != "ic_check_box_outline_blank_black_24dp.png")
-                        {
-                            isSelected = false;
-                        }
-                        else
-                        {
-                            isSelected = true;
-                        }
-                        PropertyChanged(this, new PropertyChangedEventArgs("pemata"));
-                        //						PropertyChanged (this, new PropertyChangedEventArgs (nameof (IsSelected))); // C# 6
-                    }
-                }
-            }
             public bool IsSelected
             {
                 get
@@ -80,7 +22,6 @@ namespace Detormentor_CLIENT.Views
                 }
                 set
                 {
-                    pemata = "whatever";
                     if (isSelected != value)
                     {
                         isSelected = value;
@@ -93,11 +34,11 @@ namespace Detormentor_CLIENT.Views
         }
         public class WrappedItemSelectionTemplate : ViewCell
         {
-            
+
             public WrappedItemSelectionTemplate() : base()
             {
-                Image name = new Image();
-                name.SetBinding(Image.SourceProperty, new Binding("pemata"));
+                Label name = new Label();
+                name.SetBinding(Label.TextProperty, new Binding("Item.OptionString"));
                 Switch mainSwitch = new Switch();
                 mainSwitch.SetBinding(Switch.IsToggledProperty, new Binding("IsSelected"));
                 RelativeLayout layout = new RelativeLayout();
@@ -117,9 +58,42 @@ namespace Detormentor_CLIENT.Views
             }
         }
         public List<WrappedSelection<T>> WrappedItems = new List<WrappedSelection<T>>();
+        public class DummyClass : INotifyPropertyChanged
+        {
+            public string uranus { get; set; }
+            public string trex { get; set;}
+            public DummyClass()
+            {
+                uranus = "as";
+                trex = "TREK";
+                PropertyChanged(this, new PropertyChangedEventArgs("trex"));
+                PropertyChanged(this, new PropertyChangedEventArgs("uranus"));
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged = delegate 
+            {
+                
+            };
+
+        }
         public SelectMultipleBasePage(List<T> items)
         {
+            DummyClass dc = new DummyClass();
+
             WrappedItems = items.Select(item => new WrappedSelection<T>() { Item = item, IsSelected = false }).ToList();
+            StackLayout mainstack = new StackLayout
+            {
+                Orientation = StackOrientation.Vertical,
+                Padding=5
+            };
+            Label Title = new Label();
+            Title.BindingContext = dc;
+            Title.SetBinding(Label.TextProperty, new Binding("trex"));
+            mainstack.Children.Add(Title);
+            Label Description = new Label();
+            Description.BindingContext = dc;
+            Description.SetBinding(Label.TextProperty, new Binding("uranus"));
+            mainstack.Children.Add(Description);
             ListView mainList = new ListView()
             {
                 ItemsSource = WrappedItems,
@@ -129,11 +103,25 @@ namespace Detormentor_CLIENT.Views
                 if (e.Item == null) return;
                 var o = (WrappedSelection<T>)e.Item;
                 o.IsSelected = !o.IsSelected;
-                o.pemata = "muie";
                 ((ListView)sender).SelectedItem = null; //de-select
             };
-            Content = mainList;
-        }
+            mainstack.Children.Add(mainList);
+            StackLayout ButtonStack = new StackLayout
+            {
+                Orientation = StackOrientation.Vertical,
+                HeightRequest = 80,
+                MinimumHeightRequest = 80
+            };
+            Button SendButton = new Button
+            {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Text="Send Vote"
+            };
+            ButtonStack.Children.Add(SendButton);
+            mainstack.Children.Add(ButtonStack);
+            Content = mainstack;
+        } // Actual constructor
         void SelectAll()
         {
             foreach (var wi in WrappedItems)
@@ -152,5 +140,9 @@ namespace Detormentor_CLIENT.Views
         {
             return WrappedItems.Where(item => item.IsSelected).Select(wrappedItem => wrappedItem.Item).ToList();
         }
+    }
+    public class PollDisplay
+    {
+
     }
 }

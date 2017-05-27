@@ -9,8 +9,6 @@ namespace Detormentor_CLIENT
 {
     public class PollOption
     {
-        public string ImageSource
-        { get; set; }
         public string OptionString
         { get; set; }
     }
