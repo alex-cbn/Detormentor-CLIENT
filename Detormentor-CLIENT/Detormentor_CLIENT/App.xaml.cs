@@ -20,7 +20,7 @@ namespace Detormentor_CLIENT
             items.Add(new PollOption { OptionString = "Suki"});
             items.Add(new PollOption { OptionString = "Ruski"});
             items.Add(new PollOption { OptionString = "Patzalyyyy"});
-            MainPage = new SelectMultipleBasePage<PollOption>(items);
+            MainPage = new ViewPoll(items, "Presedintele Rusei", "Gaben approves the new president of RuskiLand");
             //var ServerFind = new ServerIPInput();
             //ServerFind.ValidServer += HandleValidServer;
             //MainPage = new Detormentor_CLIENT.MainPage();
