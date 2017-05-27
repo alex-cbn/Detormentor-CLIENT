@@ -109,7 +109,6 @@ namespace Detormentor_CLIENT.Views
                 BackgroundColor = Color.FromHex("#1976d2"),
                 FontSize=28,
                 TextColor = Color.White,
-                Margin = 5
             };
             Title.BindingContext = pvm;
             Title.SetBinding(Label.TextProperty, new Binding("Title"));
