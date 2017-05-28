@@ -35,7 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IFileHelper.cs" />
     <Compile Include="Models\ListMultiSelect.cs" />
+    <Compile Include="DataServices\DBAccess.cs" />
+    <Compile Include="Models\VoterItem.cs" />
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="ViewModel\PollViewModel.cs" />
@@ -56,7 +59,7 @@
       <DependentUpon>PollListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\PollOption.cs" />
-    <Compile Include="Services\PollOptionService.cs" />
+    <Compile Include="DataServices\PollOptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\ServerIPInput.xaml.cs">
       <DependentUpon>ServerIPInput.xaml</DependentUpon>

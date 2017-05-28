@@ -1,4 +1,5 @@
-﻿using Detormentor_CLIENT.Views;
+﻿using Detormentor_CLIENT.Services;
+using Detormentor_CLIENT.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Detormentor_CLIENT
 {
     public partial class App : Application
     {
+        static DBAccess database;
         public App()
         {
             InitializeComponent();
@@ -24,6 +26,18 @@ namespace Detormentor_CLIENT
             //var ServerFind = new ServerIPInput();
             //ServerFind.ValidServer += HandleValidServer;
             //MainPage = new Detormentor_CLIENT.MainPage();
+        }
+
+        public static DBAccess Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new DBAccess(DependencyService.Get<IFileHelper>().GetLocalFilePath("VotersCache.db3"));
+                }
+                return database;
+            }
         }
 
         private void HandleValidServer(object sender, EventArgs e)
