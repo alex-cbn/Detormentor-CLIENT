@@ -2,8 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Detormentor_CLIENT.ServerIPInput">
-    <StackLayout VerticalOptions="Center">
-        <Entry x:Name="IPstring" HorizontalOptions="CenterAndExpand" Placeholder="Server IP" WidthRequest="300"/>
+    <StackLayout VerticalOptions="StartAndExpand" Padding="6">
+        <Label x:Name="labelserver" Text="IP-ul serverului"/>
+        <Entry x:Name="IPstring" Placeholder="Server IP"/>
         <Button x:Name="IPbutton" Text="Set IP" HorizontalOptions="CenterAndExpand" Clicked="submitIP"></Button>
+        <Label Text="Utilizator" />
+        <Entry Placeholder="Introduceti Utilizatorul"/>
+        <Label Text="Parola"/>
+        <Entry IsPassword="True" Placeholder="Introduceti Parola"/>
+        <Button x:Name="loginBUTTON" Text="Login" Clicked="loginBUTTONclick" IsEnabled="False" HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
 </ContentPage>

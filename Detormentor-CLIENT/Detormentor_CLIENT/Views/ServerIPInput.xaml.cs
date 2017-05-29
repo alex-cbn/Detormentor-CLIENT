@@ -29,17 +29,26 @@ namespace Detormentor_CLIENT
                 InvalidServer(this, EventArgs.Empty);
             }
         }
+        public void loginBUTTONclick(object sender, EventArgs args)
+        {
+            //listen();
+            //if (reply == "connect_ to_port")
+            //{
+                ValidServer(this, args);
+            //}
+        }
         public ServerIPInput()
         {
             InitializeComponent();
         }
         public void submitIP(object sender, EventArgs args)
         {
-            if(/*IPstring.Text=="127.0.0.1"*/true)
-            {
-                m_IP = IPstring.Text;
-                ValidServer(this, args);
-            }
+        //    m_IP = IPstring.Text;
+        //    //try to connect
+        //    if(success)
+        //    {
+                loginBUTTON.IsEnabled = true;
+        //    }
         }
     }
 }

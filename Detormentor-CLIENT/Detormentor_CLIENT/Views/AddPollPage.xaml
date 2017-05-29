@@ -4,8 +4,25 @@
              x:Class="Detormentor_CLIENT.AddPollPage"
              Title ="Add Poll" Icon="ic_add_box_black_24dp.png">
     <ContentPage.Content>
-        <StackLayout  HorizontalOptions="Center" Margin="10,10,10,10">
-            <Label Text="Ta Da" />
+        <StackLayout>
+            <Entry x:Name="numelabel" Placeholder="Nume Poll" />
+            <Entry x:Name="descriereeditor" Placeholder="Descriere Poll"/>
+            <Label Text="Introduceti optiunile (numar:optiune)"></Label>
+            <Editor x:Name="optiuni" VerticalOptions="FillAndExpand">
+            <Editor.Text>
+Exemplu:
+1:Azi
+2:Maine
+3:Poimaine
+            </Editor.Text>
+            </Editor>
+            <Entry x:Name="datalabel" Placeholder ="zz/ll/yyyy hh:mm"/>
+            <Entry x:Name="duratalabel" Placeholder ="Durata in ore" />
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                <Button x:Name="selectallbutton" HorizontalOptions="StartAndExpand" Text="Select All"/>
+                <Button x:Name="selectvotersbutton" HorizontalOptions ="CenterAndExpand" Text="Select Voters"/>
+                <Button x:Name="donbutton" HorizontalOptions ="EndAndExpand" Text="Done"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

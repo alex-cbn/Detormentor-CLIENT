@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Detormentor_CLIENT.Services
 {
-    public class DBAccess
+    public class VotersDB
     {
         public class field
         {
             public string fakestring { get; set; }
         }
         readonly public SQLiteAsyncConnection database;
-        public DBAccess(string dbPath)
+        public VotersDB(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<VoterItem>().Wait();

@@ -11,10 +11,12 @@ namespace Detormentor_CLIENT.Views
 {
     public class AddVoters : ContentPage
     {
+        public List<VoterItem> takeme;
+        public AddVotersViewModel advm;
         public AddVoters(List<VoterItem> items)
         {
-            List<VoterItem> takeme = new List<VoterItem>();
-            AddVotersViewModel advm = new AddVotersViewModel(items);
+            takeme = new List<VoterItem>();
+            advm = new AddVotersViewModel(items);
             StackLayout mainstack = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
@@ -40,12 +42,16 @@ namespace Detormentor_CLIENT.Views
             mainstack.Children.Add(mainList);
             mainstack.Children.Add(DoneButton);
             Content = mainstack;
+            DoneButton.Clicked += (sender, e) =>
+            {
+                Navigation.PopModalAsync();
+            };
             this.Appearing += async (sender, e) =>
             {
-                await App.Database.CleanAsync();
-                App.Database.MakeTable();
-                await App.Database.UpdateAsync(items);
-                takeme = await App.Database.GetAllVotersAsync();
+                await App.VotersDatabase.CleanAsync();
+                App.VotersDatabase.MakeTable();
+                await App.VotersDatabase.UpdateAsync(items);
+                takeme = await App.VotersDatabase.GetAllVotersAsync();
                 //mainList.BindingContextChanged;
             };
         }
