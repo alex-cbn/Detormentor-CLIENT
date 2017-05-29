@@ -31,7 +31,7 @@ namespace Detormentor_CLIENT.Services
             qstring = qstring + "'";
             return database.QueryAsync<VoterItem>(qstring);
         }//selecteaza votantii dupa departament
-        public Task<List<field>> GetDepartaments()
+        public Task<List<field>> GetDepartamentsAsync()
         {
             return database.QueryAsync<field>("SELECT [Departament] FROM [VoterItem] GROUP BY");
         }

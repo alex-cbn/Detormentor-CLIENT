@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using static Detormentor_CLIENT.Models.ListMultiSelect;
 
 namespace Detormentor_CLIENT.Views
 {
@@ -120,7 +119,7 @@ namespace Detormentor_CLIENT.Views
             ListView mainList = new ListView()
             {
                 ItemsSource = pvm.WrappedItems,
-                ItemTemplate = new DataTemplate(typeof(WrappedItemSelectionTemplate)),
+                ItemTemplate = new DataTemplate(typeof(PollOptionSelectionTemplate)),
             };
             mainList.ItemTapped += (sender, e) => {
                 if (e.Item == null) return;

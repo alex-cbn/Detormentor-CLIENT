@@ -39,6 +39,7 @@
     <Compile Include="Models\ListMultiSelect.cs" />
     <Compile Include="DataServices\DBAccess.cs" />
     <Compile Include="Models\VoterItem.cs" />
+    <Compile Include="ViewModel\AddVotersViewModel.cs" />
     <Compile Include="ViewModel\PollViewModel.cs" />
     <Compile Include="Views\AddPollPage.xaml.cs">
       <DependentUpon>AddPollPage.xaml</DependentUpon>
@@ -46,6 +47,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddVoters.cs" />
     <Compile Include="Views\ViewPoll.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

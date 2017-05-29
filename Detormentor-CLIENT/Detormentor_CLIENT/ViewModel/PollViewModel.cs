@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Detormentor_CLIENT.Models.ListMultiSelect;
+using Detormentor_CLIENT.Models;
 
 namespace Detormentor_CLIENT.ViewModel
 {
