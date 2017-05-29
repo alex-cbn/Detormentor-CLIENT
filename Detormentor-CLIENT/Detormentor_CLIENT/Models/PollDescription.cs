@@ -8,9 +8,9 @@ namespace Detormentor_CLIENT.Models
 {
     public class PollDescription
     {
-        public int ID;
-        public string title;
-        public string description;
-        public string winner;
+        public int ID { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public string winner { get; set; }
     }
 }

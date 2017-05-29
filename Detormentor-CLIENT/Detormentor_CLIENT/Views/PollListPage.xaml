@@ -4,8 +4,7 @@
              x:Class="Detormentor_CLIENT.PollListPage"
              Title="Poll List" Icon="ic_chrome_reader_mode_black_24dp.png">
     <ContentPage.Content>
-        <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Welcome to hell" />
+        <StackLayout  x:Name="mainstack" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
