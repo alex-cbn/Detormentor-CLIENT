@@ -14,7 +14,7 @@ namespace Detormentor_CLIENT.Services
         {
             public string fakestring { get; set; }
         }
-        readonly SQLiteAsyncConnection database;
+        readonly public SQLiteAsyncConnection database;
         public DBAccess(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);

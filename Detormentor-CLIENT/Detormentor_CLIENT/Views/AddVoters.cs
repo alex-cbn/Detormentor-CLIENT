@@ -13,6 +13,7 @@ namespace Detormentor_CLIENT.Views
     {
         public AddVoters(List<VoterItem> items)
         {
+            List<VoterItem> takeme = new List<VoterItem>();
             AddVotersViewModel advm = new AddVotersViewModel(items);
             StackLayout mainstack = new StackLayout
             {
@@ -39,6 +40,14 @@ namespace Detormentor_CLIENT.Views
             mainstack.Children.Add(mainList);
             mainstack.Children.Add(DoneButton);
             Content = mainstack;
+            this.Appearing += async (sender, e) =>
+            {
+                await App.Database.CleanAsync();
+                App.Database.MakeTable();
+                await App.Database.UpdateAsync(items);
+                takeme = await App.Database.GetAllVotersAsync();
+                //mainList.BindingContextChanged;
+            };
         }
     }
 }
